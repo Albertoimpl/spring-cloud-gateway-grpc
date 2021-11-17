@@ -1,0 +1,24 @@
+server:
+  port: 8091
+  http2:
+    enabled: true
+  ssl:
+    key-store-type: PKCS12
+    key-store: classpath:keystore.p12
+    key-store-password: password
+    key-password: password
+    enabled: true
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: json-grpc
+          uri: https://localhost:6565
+          predicates:
+            - Path=/json/**
+          filters:
+            - JSONToGRPCFilter
+logging:
+  level:
+    reactor.netty: DEBUG
+    org.springframework.cloud.gateway.filter: TRACE

@@ -1,0 +1,12 @@
+grpc:
+  enableReflection: true
+  enabled: true
+  security:
+    cert-chain: classpath:certificate.pem
+    private-key: classpath:cert.key
+server:
+  port: 8082
+
+logging:
+  level:
+    io.netty: TRACE

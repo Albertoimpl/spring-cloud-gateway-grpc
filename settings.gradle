@@ -1,0 +1,14 @@
+pluginManagement {
+    repositories {
+        maven { url 'https://repo.spring.io/milestone' }
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'spring-cloud-gateway-grpc'
+
+include "grpc-json-gateway"
+include "grpc-simple-gateway"
+include "grpc-server"
+include "grpc-client"
+

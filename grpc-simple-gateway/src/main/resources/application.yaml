@@ -1,0 +1,20 @@
+server:
+  port: 8090
+  http2:
+    enabled: true
+  ssl:
+    key-store-type: PKCS12
+    key-store: classpath:keystore.p12
+    key-store-password: password
+    key-password: password
+    enabled: true
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: grpc
+          uri: https://localhost:6565
+          predicates:
+            - Path=/**
+          filters:
+            - AddResponseHeader=X-Request-header, header-value
