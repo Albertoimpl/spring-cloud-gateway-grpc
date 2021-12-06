@@ -1,6 +1,6 @@
 = Spring Cloud Gateway and gRPC
 
-Starting from `3.1.0-RC1`, Spring Cloud Gateway included support for gRPC and HTTP/2.
+Starting from `3.1.0`, Spring Cloud Gateway included support for gRPC and HTTP/2.
 
 We will introduce the basic concepts behind gRPC and how to configure it with two examples:
 
