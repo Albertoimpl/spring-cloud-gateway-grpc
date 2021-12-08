@@ -1,6 +1,6 @@
 = Spring Cloud Gateway and gRPC
 
-Starting from `3.1.0`, Spring Cloud Gateway included support for gRPC and HTTP/2.
+Starting from `3.1.0` as part of the Spring Cloud 2021.0.0 (aka Jubilee) release train, Spring Cloud Gateway included support for gRPC and HTTP/2.
 
 We will introduce the basic concepts behind gRPC and how to configure it with two examples:
 
@@ -157,7 +157,7 @@ Finally, we can use the client that points to the gateway application:
 ./gradlew :grpc-client:bootRun
 ----
 
-The gateway routes and filters can be modified in `grpc-simple-gateway/src/main/resources/application.yaml`
+The gateway routes and filters can be modified in https://github.com/Albertoimpl/spring-cloud-gateway-grpc/blob/5bf80a24a8adf0d5d7c1614524f9d55707536c19/grpc-simple-gateway/src/main/resources/application.yaml#L14[grpc-simple-gateway/src/main/resources/application.yaml]
 
 == Running JSON to gRPC with a custom filter
 
@@ -206,7 +206,7 @@ static class GRPCResponseDecorator extends ServerHttpResponseDecorator {
 ----
 
 The full implementation can be found
-in: `grpc-json-gateway/src/main/java/com/example/grpcserver/hello/JSONToGRPCFilterFactory.java`
+in: https://github.com/Albertoimpl/spring-cloud-gateway-grpc/blob/5bf80a24a8adf0d5d7c1614524f9d55707536c19/grpc-json-gateway/src/main/java/com/example/grpcserver/hello/JSONToGRPCFilterFactory.java#L38[grpc-json-gateway/src/main/java/com/example/grpcserver/hello/JSONToGRPCFilterFactory.java]
 
 Using the same `grpc-server`, we can start the gateway with the custom filter with:
 
