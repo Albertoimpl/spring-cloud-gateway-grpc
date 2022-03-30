@@ -11,6 +11,10 @@ server:
 spring:
   cloud:
     gateway:
+      httpclient:
+        ssl:
+          use-insecure-trust-manager: true
+
       routes:
         - id: grpc
           uri: https://localhost:6565

@@ -1,8 +1,8 @@
 plugins {
-    id 'org.springframework.boot' version '2.6.0-RC1'
+    id 'org.springframework.boot' version '2.6.2'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
-    id "io.github.lognet.grpc-spring-boot" version '4.5.7'
+    id "io.github.lognet.grpc-spring-boot" version '4.6.0'
 }
 
 apply plugin: 'com.google.protobuf'
@@ -21,11 +21,11 @@ repositories {
 }
 
 ext {
-    set('springCloudVersion', "2021.0.0-RC1")
+    set('springCloudVersion', "2021.0.1")
 }
 
 dependencies {
-    implementation 'io.github.lognet:grpc-spring-boot-starter:4.5.7'
+    implementation 'io.github.lognet:grpc-spring-boot-starter:4.6.0'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
 
     implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
