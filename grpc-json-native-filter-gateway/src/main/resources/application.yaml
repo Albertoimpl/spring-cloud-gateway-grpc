@@ -1,0 +1,34 @@
+server:
+  port: 8093
+  http2:
+    enabled: true
+  ssl:
+    key-store-type: PKCS12
+    key-store: classpath:keystore.p12
+    key-store-password: password
+    key-password: password
+    enabled: true
+spring:
+  cloud:
+    gateway:
+      httpclient:
+        ssl:
+          use-insecure-trust-manager: true
+
+      routes:
+        - id: json-grpc
+          uri: https://localhost:6565/testhello
+          predicates:
+            - Path=/json/**
+          filters:
+            - name: JSONToGRPCFilter
+              args:
+                protoDescriptor: grpc-json-native-filter-gateway/src/main/resources/proto/hello.pb
+                protoFile: grpc-json-native-filter-gateway/src/main/resources/proto/hello.proto
+                service: com.example.grpcserver.hello.HelloService
+                method: hello
+
+logging:
+  level:
+    reactor.netty: DEBUG
+    org.springframework.cloud.gateway.filter: TRACE
